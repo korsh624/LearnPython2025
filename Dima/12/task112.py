@@ -6,4 +6,4 @@ while '222' in s or '888' in s:
     else:
         s = s.replace('888', '2', 1)
 
-print(s)
+print(s)g
