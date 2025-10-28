@@ -20,11 +20,7 @@ while '333' in s or '555' in s:
     if '555' in s:
         s=s.replace('555','3',1)
     else:
-<<<<<<< HEAD
-        s = s.replace('888', '2', 1)
+        s = s.replace('333', '5', 1)
 
-print(s)g
-=======
-        s=s.replace('333','5',1)
 print(s)
->>>>>>> 347a9977164b995514b854c5a9f7efaef50cca99
+
