@@ -67,7 +67,7 @@ def func3(n):
         if char=='1':
             invert+='0'
         else:
-            char+='1'
+            invert+='1'
     res=invert+noivert
     return int(res,2)
 
