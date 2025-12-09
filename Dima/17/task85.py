@@ -15,8 +15,9 @@ for i in range(1111, 10000):
             count += 1
             if i > max_num:
                 max_num = i
-    except ZeroDivisionError:
+    except Exception as e:
         # Если p == 0 (произведение цифр нулевое), пропускаем число
+        print(e)
         continue
 
 print(count, max_num)
