@@ -24,4 +24,3 @@ for i in range(1000):
     if res>115:
         print(res)
         break
-
