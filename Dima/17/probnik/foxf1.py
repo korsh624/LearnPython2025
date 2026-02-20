@@ -13,39 +13,31 @@ numbers = []
 for line in lines:
     numbers.append(int(line))
 
-# Находим минимальное число, оканчивающееся на 7
-min_ending_7 = None
-for num in numbers:
-    if abs(num) % 10 == 7:  # проверяем последнюю цифру (с учётом знака)
-        if min_ending_7 is None or num < min_ending_7:
-            min_ending_7 = num
+min_end7=None
+for number in numbers:
+    if abs(number)%10==7:
+        if min_end7 is None or number < min_end7:
+            min_end7 = number
 
-# Если нет чисел, оканчивающихся на 7, ответ 0 0
-if min_ending_7 is None:
-    print("0 0")
+if min_end7==None:
+    print('0 0')
     exit()
+min_square=min_end7*min_end7
+counter=0
+max_sum_square=0
 
-min_square = min_ending_7 ** 2  # квадрат минимального числа, оканчивающегося на 7
+for i in range(len(numbers)-1):
+    a,b=numbers[i],numbers[i+1]
+    a_end7=abs(a)%10==7
+    b_end7=abs(b)%10==7
+    if a_end7!=b_end7:
+        squaresum=(a+b)**2
+        if squaresum>min_square:
+            counter+=1
+            if squaresum>max_sum_square:
+                max_sum_square=squaresum
+print(counter , max_sum_square)
 
-count = 0  # счётчик подходящих пар
-max_sum_square = 0  # максимальный квадрат суммы элементов пары
 
-# Проходим по всем соседним парам
-for i in range(len(numbers) - 1):
-    a, b = numbers[i], numbers[i + 1]
 
-    # Проверяем, что только одно число оканчивается на 7
-    a_ends_7 = abs(a) % 10 == 7
-    b_ends_7 = abs(b) % 10 == 7
 
-    if a_ends_7 != b_ends_7:  # ровно одно оканчивается на 7 (XOR)
-        sum_ab = a + b
-        sum_square = sum_ab ** 2
-
-        # Проверяем условие на квадрат суммы
-        if sum_square >= min_square:
-            count += 1
-            if sum_square > max_sum_square:
-                max_sum_square = sum_square
-
-print(f"{count} {max_sum_square}")
