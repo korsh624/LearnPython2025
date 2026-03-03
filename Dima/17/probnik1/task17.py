@@ -8,7 +8,10 @@
 '''
 # Чтение данных (пример — из файла 17.txt)
 with open('17.txt', 'r') as file:
-    numbers = [int(line.strip()) for line in file]
+    lines = file.readlines()
+    numbers = []
+    for line in lines:
+        numbers.append(int(line))
 
 # Шаг 1: найти минимальный элемент, оканчивающийся на 3
 min_elem_with_3 = None
