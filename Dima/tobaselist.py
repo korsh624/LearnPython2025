@@ -1,5 +1,3 @@
-from pandocfilters import applyJSONFilters
-
 
 def convert_to_base(n, base):
     if n == 0:
