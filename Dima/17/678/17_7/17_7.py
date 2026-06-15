@@ -1,28 +1,41 @@
+"""В файле содержится
+последовательность целых чисел.
+Элементы последовательности могут принимать целые значения,
+по модулю не превосходящие 10000 включительно. Найдите такие пары элементов,
+в которых произведение элементов больше, чем произведение рядом стоящих чисел (перед и после пары).
+В качестве ответа выведите
+максимальную сумму среди найденных пар,
+затем количество таких из них, в которых
+есть хотя бы одно число, большее среднего
+арифметического всех чисел в файле.
+Под парой в задаче подразумевается два подряд идущих числа.
+Первая и последняя пара в файле не могут быть искомыми, так как перед или после них нет чисел."""
 with open('17 (7).txt') as file:
     lines = file.readlines()
 numbers = []
 for i in lines:
     numbers.append(int(i.strip()))
-
+# print(numbers)
 # Среднее арифметическое
 s = 0
 for x in numbers:
     s += x
 avg = s / len(numbers)
+print(avg)
+avg = sum(numbers) / len(numbers)
+print(avg)
 
 maxs = -10**9
 cnt = 0
-
+# 2 1 3 6 5 4
 for i in range(1, len(numbers)-2):   # ← здесь было ошибка
     p1 = numbers[i] * numbers[i+1]
-    p0 = numbers[i-1] * numbers[i]
-    p2 = numbers[i+1] * numbers[i+2]
+    p2 = numbers[i-1] * numbers[i+2]
     
-    if p1 > p0 and p1 > p2:
+    if p1 > p2 and (numbers[i] > avg or numbers[i+1]):
+        cnt += 1
         sm = numbers[i] + numbers[i+1]
         if sm > maxs:
             maxs = sm
-        if numbers[i] > avg or numbers[i+1] > avg:
-            cnt += 1
 
 print(maxs, cnt)

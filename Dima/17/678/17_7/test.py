@@ -4,7 +4,7 @@ with open("17 (7).txt") as f:
 
 # среднее арифметическое всех чисел
 avg = sum(nums) / len(nums)
-
+print(avg)
 max_sum = -10**20
 count = 0
 

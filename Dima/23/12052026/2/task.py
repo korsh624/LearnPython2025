@@ -17,9 +17,9 @@ C. Найти целую часть от деления на 4
 из чисел 249, 83, 20.
 """
 from functools import lru_cache
+import sys
+sys.setrecursionlimit(500000)
 
-
-@lru_cache(None)
 def f(x, end):
 
     # запрещённое число
