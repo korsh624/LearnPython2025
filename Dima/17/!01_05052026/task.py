@@ -24,7 +24,7 @@ trees=[]
 minsum=10**10
 for i in range(0,len(digits)-2):
     a,b,c=digits[i],digits[i+1],digits[i+2]
-    cond1=a%100==17 or b%100==17 or c%100==17
+    cond1=abs(a)%100==17 or abs(b)%100==17 or abs(c)%100==17
     cond2=abs(a)+abs(b)+abs(c)<= max17
     if cond1 and cond2:
         trees.append(a+b+c)
