@@ -15,6 +15,7 @@ minel15=float('inf')
 for digit in digits:
     if digit < minel15 and abs(digit)%100==15 and 99<abs(digit)<1000:
         minel15=digit
+print(minel15)
 print(minel15**2)
 minel15=minel15**2
 count=0
